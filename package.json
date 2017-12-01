@@ -5,27 +5,15 @@
   "author": "Tim Chaplin <tim.chaplin@ticktockdevelopment.com>, Gavin van der Merwe <fir3pho3nixx@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/scarletjs/scarlet.git"
+    "url": "https://github.com/webpepper/scarlet.git"
   },
-  "homepage": "https://github.com/scarletjs/scarlet.git",
+  "homepage": "https://github.com/webpepper/scarlet",
   "devDependencies": {
-    "mocha": "*",
-    "hooks": "~0.3.0",
-    "prompt": "~0.2.9",
-    "benchmark": "1.0.0",
-    "string-format": "0.2.1",
-    "gulp": "~3.5.6",
-    "gulp-util": "~2.2.14",
-    "gulp-mocha": "~0.4.1",
-    "gulp-jshint": "~1.5.0",
-    "gulp-browserify": "~0.5.0",
-    "gulp-bump": "~0.1.6",
-    "sinon": "~1.9.0",
-    "gulp-rename": "~1.2.0",
-    "gulp-mox": "0.0.3",
-    "gulp-git": "~0.3.6"
+    "mocha": "^4.0.1",
+    "sinon": "^4.1.2",
+    "eslint": "^4.12.1",
+    "webpack": "^3.9.1"
   },
-  "browserDependencies": {},
   "keywords": [
     "aop",
     "aspect",
@@ -45,16 +33,17 @@
     "patch",
     "debug"
   ],
-  "engines": {
-    "node": ">= 0.10.0"
-  },
   "main": "./index.js",
   "directories": {
     "test": "tests",
     "lib": "lib"
   },
   "scripts": {
-    "test": "gulp test"
+    "unitTest": "mocha ./tests/unit/lib/**/*.js",
+    "bddTest": "mocha ./tests/spec/**/*.js",
+    "test": "npm run unitTest && npm run unitTest",
+    "lint": "eslint ./lib/**/*.js ./tests/**/*.js",
+    "build": "webpack"
   },
   "license": "MIT"
 }
